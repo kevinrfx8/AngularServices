@@ -1,0 +1,27 @@
+:host{
+    .container{
+        display: flex;
+        height: 100%;
+        .login{
+            flex: 0 0 50%;
+            display: flex;
+            flex-flow: column;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+
+            mat-card-content{
+                display: flex;
+                flex-flow: column;
+            }
+            mat-card-actions{
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .bg{
+            flex: 0 0 50%;
+            background-color: blue;
+        }
+    }    
+}
