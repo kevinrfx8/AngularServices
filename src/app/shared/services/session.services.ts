@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from "rxjs";
     providedIn: 'root'
 })
 export class SessionService {
-    _session: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+    _session: BehaviorSubject<any> = new BehaviorSubject<any>(false);
     session: Observable<any> = this._session.asObservable();
 
     constructor(
@@ -23,13 +23,12 @@ export class SessionService {
         this._session.next(session)
     }
 
-    login() {
-        this.httpClient.post("https://dev.ti.sithec.com.mx/api/Users/in/loging",
-            {
-                "userName": "diego",
-                "password": "1234"
-            }
-        ).toPromise()
+    login(credentials) {
+        return this.httpClient
+            .post("https://dev.ti.sithec.com.mx/api/Users/in/loging",
+                credentials
+            )
+            .toPromise()
             .then(() => {
                 this._session.next(true);
             })

@@ -1,4 +1,10 @@
 :host{
+    display: block;
+    height: 100%;
+
+    .error{
+        color: red;
+    }
     .container{
         display: flex;
         height: 100%;

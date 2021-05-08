@@ -5,15 +5,13 @@
         <button (click)="showFiller = !showFiller" mat-raised-button>
             Toggle extra text
         </button> -->
-        contenido
+        {{isOpen | async}}
     </mat-drawer>
 
     <div class="example-sidenav-content">
-        <!-- <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-        </button> -->
-        <button (click)="login()">Iniciar session</button>
-        <button (click)="close()">Cerrar session</button>
+        <router-outlet></router-outlet>
+
     </div>
 
 </mat-drawer-container>
+<app-loader></app-loader>

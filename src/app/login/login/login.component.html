@@ -1,6 +1,6 @@
 <div class="container">
     <div class="login">
-        <mat-card>
+        <mat-card [formGroup]="credentials">
             <!-- <mat-card-header>
                 <mat-card-title>title</mat-card-title>
                 <mat-card-subtitle>subtitle</mat-card-subtitle>
@@ -9,14 +9,23 @@
                 <!-- <app-tmp></app-tmp>
                 <h1>{{(session | async )}}</h1> -->
                 <mat-form-field>
-                    <input matInput placeholder="Usuario" value="">
+                    <input matInput placeholder="Usuario" value="" formControlName="userName">
                 </mat-form-field>
+                <div *ngIf="credentials.get('userName').invalid && credentials.get('userName').touched ">
+                    <span class="error" *ngIf="credentials.get('userName').errors.required">El usuario es
+                        requerido</span>
+                    <span class="error" *ngIf="credentials.get('userName').errors.minlength">Minimo 4 caracteres</span>
+                </div>
                 <mat-form-field>
-                    <input type="password" matInput placeholder="Contraseña" value="">
+                    <input type="password" matInput placeholder="Contraseña" value="" formControlName="password">
                 </mat-form-field>
+                <div>
+                    <span class="error">{{error}}</span>
+                </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary">Iniciar sesión</button>
+                <button [disabled]="credentials.invalid" mat-raised-button color="primary" (click)="login()">Iniciar
+                    sesión</button>
             </mat-card-actions>
         </mat-card>
     </div>

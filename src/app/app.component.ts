@@ -16,10 +16,4 @@ export class AppComponent {
     this.isOpen = this.sessionService.session;
   }
 
-  login() {
-    this.sessionService.login();
-  }
-  close() {
-    this.sessionService.close();
-  }
 }

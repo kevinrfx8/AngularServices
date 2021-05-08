@@ -5,6 +5,7 @@ import { MaterialModule } from "../shared/material.module";
 import { LoginComponent } from "./login/login.component";
 import { TmpComponent } from "./login/tmp/tmp.component";
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const routes: Routes = [
     {
@@ -20,6 +21,8 @@ const routes: Routes = [
     ],
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule,
         RouterModule.forChild(routes),
         MaterialModule,
